@@ -32,21 +32,21 @@ To execute a benchmark, use the `docker-compose run` command with specific envir
 
 #### Redis (RDB)
 
-- Total duration: 77.976 s
-- Total number of operations: 1,000,000
-- Operations per second: 12,824 op/s
+- Total duration: `77.976 s`
+- Total number of operations: `1,000,000`
+- Operations per second: `12,824 op/s`
 
 #### Redis (AOF)
 
-- Total duration: 83.113 s
-- Total number of operations: 1,000,000
-- Operations per second: 12,031 op/s
+- Total duration: `83.113 s`
+- Total number of operations: `1,000,000`
+- Operations per second: `12,031 op/s`
 
 ### Beanstalkd Results
 
-- Total duration: 17.816 s
-- Total number of operations: 100,000
-- Operations per second: 5,612 op/s
+- Total duration: `17.816 s`
+- Total number of operations: `100,000`
+- Operations per second: `5,612 op/s`
 
 ## Further Information
 
