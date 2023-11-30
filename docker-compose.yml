@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-rdb
+      - redis-aof
+      - beanstalkd
+    environment:
+      - HOSTNAME=redis-rdb
+      - PORT=6379
+      - NUMBER_OF_OPERATIONS=100000
+    profiles: 
+      - benchmark
+
+  beanstalkd:
+    image: schickling/beanstalkd
+    ports:
+      - "11300:11300"
+
+  redis-rdb:
+    image: redis
+    command: redis-server --save 60 1
+    volumes:
+      - redis_rdb_data:/data
+    ports:
+      - "6379:6379"
+
+  redis-aof:
+    image: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_aof_data:/data
+    ports:
+      - "6380:6379"
+  
+  redis-ui:
+    image: patrikx3/p3x-redis-ui:latest
+    ports:
+      - 7843:7843
+    depends_on:
+      - redis-rdb
+      - redis-aof
+    volumes:
+      - ./p3x-redis-ui-settings:/settings
+
+volumes:
+  redis_rdb_data: {}
+  redis_aof_data: {}

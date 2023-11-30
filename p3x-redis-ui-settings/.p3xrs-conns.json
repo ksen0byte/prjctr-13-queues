@@ -1,0 +1,19 @@
+{
+    "update": "2023-2730-11T14:18:28.315Z",
+    "list": [
+        {
+            "name": "redis-rdb",
+            "host": "redis-rdb",
+            "port": 6379,
+            "password": "",
+            "id": "unique"
+        },
+        {
+            "name": "redis-aof",
+            "host": "redis-aof",
+            "port": 6379,
+            "password": "",
+            "id": "unique"
+        }
+    ]
+}
